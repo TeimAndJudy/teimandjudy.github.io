@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teim & Judy Wedding</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:#681017;
+    overflow-x:hidden;
+}
+
+/* =========================
+   COVER
+========================= */
+
+#cover{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:35px 18px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #8b1b23 0%,
+        #711219 55%,
+        #50090e 100%
+    );
+
+    overflow:hidden;
+}
+
+/* FLOATING HEARTS */
+
+.float-heart{
+    position:absolute;
+    color:#e8bcb3;
+    opacity:.45;
+    font-size:18px;
+    animation:floatHeart 7s ease-in-out infinite;
+}
+
+.h1{left:10%;top:12%;}
+.h2{right:12%;top:16%;animation-delay:1s;}
+.h3{right:4%;top:38%;animation-delay:2s;}
+.h4{left:7%;bottom:20%;animation-delay:3s;}
+.h5{right:13%;bottom:10%;animation-delay:4s;}
+.h6{left:48%;bottom:6%;animation-delay:2s;}
+
+@keyframes floatHeart{
+
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+        opacity:.3;
+    }
+
+    50%{
+        transform:translateY(-28px) rotate(10deg);
+        opacity:.7;
+    }
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    width:min(680px,92vw);
+    min-height:850px;
+
+    background:#fff9f0;
+
+    border-radius:13px;
+
+    box-shadow:
+    0 22px 55px rgba(45,0,0,.42);
+
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+
+    padding:52px 30px 48px;
+
+    overflow:hidden;
+
+    animation:appear 1s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.985);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* =========================
+   FLOWERS
+========================= */
+
+.floral{
+    position:absolute;
+    width:180px;
+    height:auto;
+    pointer-events:none;
+}
+
+.floral-top{
+    left:-12px;
+    top:-5px;
+}
+
+.floral-bottom{
+    right:-12px;
+    bottom:-8px;
+    transform:rotate(180deg);
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.heart-circle{
+
+    width:82px;
+    height:82px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #7b1119,
+        #50080d
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff7ee;
+
+    font-size:34px;
+
+    box-shadow:
+    0 10px 25px rgba(90,0,0,.3);
+
+    margin-top:5px;
+    margin-bottom:32px;
+}
+
+
+/* =========================
+   NAMES
+========================= */
+
+.names{
+
+    font-family:'Great Vibes',cursive;
+
+    color:#671319;
+
+    font-size:64px;
+
+    line-height:.92;
+
+    font-weight:400;
+}
+
+.amp{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+
+    color:#8b5052;
+
+    margin:9px 0;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:14px;
+
+    margin:28px 0 19px;
+
+    color:#9c6668;
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    width:105px;
+    height:1px;
+}
+
+.divider::before{
+
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        #9c6668
+    );
+}
+
+.divider::after{
+
+    background:
+    linear-gradient(
+        to left,
+        transparent,
+        #9c6668
+    );
+}
+
+.divider span{
+    font-size:17px;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.date{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+    letter-spacing:4px;
+
+    color:#976366;
+
+    font-weight:500;
+
+    margin-bottom:40px;
+}
+
+
+/* =========================
+   ARABIC TITLE
+========================= */
+
+.arabic-title{
+
+    font-family:'Noto Naskh Arabic',serif;
+
+    direction:rtl;
+
+    color:#8e5d60;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+
+/* =========================
+   GUEST NAME
+========================= */
+
+.guest-box{
+
+    width:min(470px,80%);
+
+    padding:14px 25px;
+
+    background:#f1e2db;
+
+    border-radius:19px;
+
+    color:#69191e;
+
+    font-family:
+    'Noto Naskh Arabic',
+    'Cormorant Garamond',
+    serif;
+
+    font-size:33px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.6);
+}
+
+
+/* =========================
+   ARABIC TEXT
+========================= */
+
+.arabic-text{
+
+    font-family:'Noto Naskh Arabic',serif;
+
+    direction:rtl;
+
+    color:#895256;
+
+    font-size:28px;
+
+    line-height:1.7;
+
+    margin-bottom:32px;
+}
+
+
+/* =========================
+   OPEN BUTTON
+========================= */
+
+.open-btn{
+
+    width:205px;
+    min-height:86px;
+
+    border:none;
+
+    border-radius:44px;
+
+    background:
+    linear-gradient(
+        110deg,
+        #681016 0%,
+        #811720 48%,
+        #5c0c12 100%
+    );
+
+    color:#fff8ef;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    letter-spacing:4px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(75,0,0,.28);
+
+    transition:
+    transform .3s,
+    box-shadow .3s;
+}
+
+.open-btn:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.03);
+
+    box-shadow:
+    0 14px 30px rgba(75,0,0,.32);
+}
+
+.arrow{
+
+    display:block;
+
+    font-size:28px;
+
+    line-height:.8;
+
+    margin-top:5px;
+
+    letter-spacing:0;
+}
+
+
+/* =========================
+   AFTER OPEN
+========================= */
+
+#invitation{
+
+    display:none;
+
+    min-height:100vh;
+
+    background:#fffaf3;
+
+    color:#671319;
+
+    text-align:center;
+
+    padding:90px 20px;
+
+    animation:appear .9s ease;
+}
+
+#invitation h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:68px;
+
+    font-weight:400;
+
+    margin-bottom:28px;
+}
+
+#invitation p{
+
+    font-family:'Noto Naskh Arabic',serif;
+
+    direction:rtl;
+
+    font-size:26px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    #cover{
+        padding:28px 12px;
+    }
+
+    .card{
+
+        width:94vw;
+
+        min-height:760px;
+
+        padding:45px 18px 40px;
+    }
+
+    .floral{
+        width:135px;
+    }
+
+    .heart-circle{
+
+        width:69px;
+        height:69px;
+
+        font-size:28px;
+
+        margin-bottom:28px;
+    }
+
+    .names{
+        font-size:53px;
+    }
+
+    .amp{
+        font-size:28px;
+    }
+
+    .divider{
+        margin:23px 0 16px;
+    }
+
+    .divider::before,
+    .divider::after{
+        width:68px;
+    }
+
+    .date{
+
+        font-size:21px;
+
+        letter-spacing:2.5px;
+
+        margin-bottom:31px;
+    }
+
+    .arabic-title{
+
+        font-size:24px;
+
+        margin-bottom:12px;
+    }
+
+    .guest-box{
+
+        width:82%;
+
+        padding:12px 15px;
+
+        font-size:27px;
+
+        margin-bottom:17px;
+    }
+
+    .arabic-text{
+
+        font-size:24px;
+
+        margin-bottom:29px;
+    }
+
+    .open-btn{
+
+        width:170px;
+
+        min-height:73px;
+
+        font-size:22px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<section id="cover">
+
+
+<span class="float-heart h1">♥</span>
+<span class="float-heart h2">♥</span>
+<span class="float-heart h3">♥</span>
+<span class="float-heart h4">♥</span>
+<span class="float-heart h5">♥</span>
+<span class="float-heart h6">♥</span>
+
+
+<div class="card">
+
+
+<!-- TOP FLOWERS -->
+
+<svg class="floral floral-top"
+viewBox="0 0 220 330"
+xmlns="http://www.w3.org/2000/svg">
+
+<path d="M35 305 C65 220,75 120,165 20"
+stroke="#917e5f" stroke-width="2" fill="none"/>
+
+<path d="M50 280 C100 210,135 150,200 115"
+stroke="#ad9a78" stroke-width="1.6" fill="none"/>
+
+<path d="M40 250 C55 180,35 120,70 55"
+stroke="#887653" stroke-width="1.5" fill="none"/>
+
+<g fill="#aaa27c">
+
+<ellipse cx="58" cy="213" rx="10" ry="24"
+transform="rotate(-42 58 213)"/>
+
+<ellipse cx="82" cy="172" rx="9" ry="22"
+transform="rotate(32 82 172)"/>
+
+<ellipse cx="112" cy="115" rx="9" ry="22"
+transform="rotate(-34 112 115)"/>
+
+<ellipse cx="152" cy="66" rx="8" ry="20"
+transform="rotate(35 152 66)"/>
+
+<ellipse cx="42" cy="150" rx="8" ry="21"
+transform="rotate(-25 42 150)"/>
+
+</g>
+
+
+<g transform="translate(8 148)">
+
+<circle cx="50" cy="50" r="38" fill="#6f1721"/>
+
+<ellipse cx="50" cy="25" rx="22" ry="30" fill="#8b2732"/>
+
+<ellipse cx="25" cy="45" rx="22" ry="30"
+fill="#741a24"
+transform="rotate(-50 25 45)"/>
+
+<ellipse cx="73" cy="45" rx="22" ry="30"
+fill="#8e2935"
+transform="rotate(50 73 45)"/>
+
+<ellipse cx="34" cy="72" rx="24" ry="28"
+fill="#66141d"/>
+
+<ellipse cx="67" cy="72" rx="24" ry="28"
+fill="#771d27"/>
+
+<circle cx="50" cy="50" r="15"
+fill="#521017"/>
+
+</g>
+
+
+<g transform="translate(28 220) scale(.8)">
+
+<circle cx="50" cy="50" r="38"
+fill="#711823"/>
+
+<ellipse cx="50" cy="25" rx="22" ry="30"
+fill="#8c2632"/>
+
+<ellipse cx="25" cy="45" rx="22" ry="30"
+fill="#741924"/>
+
+<ellipse cx="73" cy="45" rx="22" ry="30"
+fill="#8b2632"/>
+
+<ellipse cx="50" cy="72" rx="25" ry="28"
+fill="#61131c"/>
+
+<circle cx="50" cy="50" r="15"
+fill="#521017"/>
+
+</g>
+
+
+<g transform="translate(88 180) scale(.68)">
+
+<ellipse cx="45" cy="18" rx="22" ry="32"
+fill="#eee2cc"/>
+
+<ellipse cx="20" cy="45" rx="22" ry="32"
+fill="#e5d5bd"/>
+
+<ellipse cx="70" cy="45" rx="22" ry="32"
+fill="#f2e6d0"/>
+
+<ellipse cx="45" cy="70" rx="22" ry="32"
+fill="#dfcfb6"/>
+
+<circle cx="45" cy="45" r="13"
+fill="#c4aa80"/>
+
+</g>
+
+
+<g fill="#7a2731">
+
+<circle cx="150" cy="35" r="5"/>
+<circle cx="162" cy="27" r="4"/>
+<circle cx="176" cy="42" r="4.5"/>
+<circle cx="185" cy="55" r="3.5"/>
+
+</g>
+
+</svg>
+
+
+
+<!-- BOTTOM FLOWERS -->
+
+<svg class="floral floral-bottom"
+viewBox="0 0 220 330"
+xmlns="http://www.w3.org/2000/svg">
+
+<path d="M35 305 C65 220,75 120,165 20"
+stroke="#917e5f" stroke-width="2" fill="none"/>
+
+<path d="M50 280 C100 210,135 150,200 115"
+stroke="#ad9a78" stroke-width="1.6" fill="none"/>
+
+<path d="M40 250 C55 180,35 120,70 55"
+stroke="#887653" stroke-width="1.5" fill="none"/>
+
+
+<g fill="#aaa27c">
+
+<ellipse cx="58" cy="213" rx="10" ry="24"
+transform="rotate(-42 58 213)"/>
+
+<ellipse cx="82" cy="172" rx="9" ry="22"
+transform="rotate(32 82 172)"/>
+
+<ellipse cx="112" cy="115" rx="9" ry="22"
+transform="rotate(-34 112 115)"/>
+
+<ellipse cx="152" cy="66" rx="8" ry="20"
+transform="rotate(35 152 66)"/>
+
+</g>
+
+
+<g transform="translate(8 148)">
+
+<circle cx="50" cy="50" r="38"
+fill="#6f1721"/>
+
+<ellipse cx="50" cy="25" rx="22" ry="30"
+fill="#8b2732"/>
+
+<ellipse cx="25" cy="45" rx="22" ry="30"
+fill="#741a24"/>
+
+<ellipse cx="73" cy="45" rx="22" ry="30"
+fill="#8e2935"/>
+
+<ellipse cx="34" cy="72" rx="24" ry="28"
+fill="#66141d"/>
+
+<ellipse cx="67" cy="72" rx="24" ry="28"
+fill="#771d27"/>
+
+<circle cx="50" cy="50" r="15"
+fill="#521017"/>
+
+</g>
+
+
+<g transform="translate(28 220) scale(.8)">
+
+<circle cx="50" cy="50" r="38"
+fill="#711823"/>
+
+<ellipse cx="50" cy="25" rx="22" ry="30"
+fill="#8c2632"/>
+
+<ellipse cx="25" cy="45" rx="22" ry="30"
+fill="#741924"/>
+
+<ellipse cx="73" cy="45" rx="22" ry="30"
+fill="#8b2632"/>
+
+<ellipse cx="50" cy="72" rx="25" ry="28"
+fill="#61131c"/>
+
+<circle cx="50" cy="50" r="15"
+fill="#521017"/>
+
+</g>
+
+
+<g transform="translate(88 180) scale(.68)">
+
+<ellipse cx="45" cy="18" rx="22" ry="32"
+fill="#eee2cc"/>
+
+<ellipse cx="20" cy="45" rx="22" ry="32"
+fill="#e5d5bd"/>
+
+<ellipse cx="70" cy="45" rx="22" ry="32"
+fill="#f2e6d0"/>
+
+<ellipse cx="45" cy="70" rx="22" ry="32"
+fill="#dfcfb6"/>
+
+<circle cx="45" cy="45" r="13"
+fill="#c4aa80"/>
+
+</g>
+
+
+<g fill="#7a2731">
+
+<circle cx="150" cy="35" r="5"/>
+<circle cx="162" cy="27" r="4"/>
+<circle cx="176" cy="42" r="4.5"/>
+<circle cx="185" cy="55" r="3.5"/>
+
+</g>
+
+</svg>
+
+
+
+<!-- HEART -->
+
+<div class="heart-circle">
+♥
+</div>
+
+
+
+<!-- NAMES -->
+
+<div class="names">
+
+Teim
+
+<div class="amp">
+&
+</div>
+
+Judy
+
+</div>
+
+
+
+<!-- DIVIDER -->
+
+<div class="divider">
+<span>❦</span>
+</div>
+
+
+
+<!-- DATE -->
+
+<div class="date">
+23 SEPTEMBER 2026
+</div>
+
+
+
+<!-- ARABIC INVITATION -->
+
+<div class="arabic-title">
+يسرّنا أن ندعوكم
+</div>
+
+
+
+<!-- GUEST NAME -->
+
+<div class="guest-box" id="guestName">
+ضيفنا العزيز
+</div>
+
+
+
+<!-- BOTTOM TEXT -->
+
+<div class="arabic-text">
+لحضور عشاء زفافنا
+</div>
+
+
+
+<!-- OPEN BUTTON -->
+
+<button class="open-btn" onclick="openInvitation()">
+
+OPEN
+
+<span class="arrow">
+⟶
+</span>
+
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     AFTER OPEN
+========================= -->
+
+<section id="invitation">
+
+<h1>
+Teim & Judy
+</h1>
+
+<p>
+يسعدنا أن تشاركونا فرحتنا
+<br>
+في يوم زفافنا
+</p>
+
+<br><br>
+
+<p>
+23 / 9 / 2026
+<br>
+6:00 PM
+</p>
+
+</section>
+
+
+
+<script>
+
+/* =========================
+   GUEST NAME FROM LINK
+========================= */
+
+const params =
+new URLSearchParams(window.location.search);
+
+const guest =
+params.get("guest");
+
+if(guest){
+
+    document
+    .getElementById("guestName")
+    .textContent = guest;
+
+}
+
+
+/* =========================
+   OPEN
+========================= */
+
+function openInvitation(){
+
+    document
+    .getElementById("cover")
+    .style.display="none";
+
+    document
+    .getElementById("invitation")
+    .style.display="block";
+
+    window.scrollTo(0,0);
+
+}
+
+</script>
+
+
+</body>
+</html>
