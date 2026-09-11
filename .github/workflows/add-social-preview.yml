@@ -1,0 +1,41 @@
+name: Add social preview metadata
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-social-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add Open Graph metadata
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+
+          marker = '<meta property="og:title" content="تيم و جودي">'
+          if marker not in text:
+              tags = '''\n<meta property="og:title" content="تيم و جودي">\n<meta property="og:type" content="website">\n<meta property="og:url" content="https://teimandjudy.github.io/">\n<meta property="og:image" content="https://teimandjudy.github.io/E08D814B-1973-48D4-8892-D3E1C64E370F.jpeg">\n<meta property="og:image:alt" content="تيم و جودي">\n<meta property="og:description" content="">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="تيم و جودي">\n<meta name="twitter:image" content="https://teimandjudy.github.io/E08D814B-1973-48D4-8892-D3E1C64E370F.jpeg">\n'''
+              text = text.replace('<title>Teim & Judy Wedding</title>', '<title>تيم و جودي</title>' + tags, 1)
+              p.write_text(text, encoding='utf-8')
+
+      - name: Commit change
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add WhatsApp social preview"
+          git push
