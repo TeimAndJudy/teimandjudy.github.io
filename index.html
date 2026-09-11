@@ -621,6 +621,34 @@ body{
     #invitation .names-revealed .arabic-name{animation:none;}
 }
 
+
+/* Reception date, live countdown and September calendar. */
+#invitation .wedding-date{display:block;max-width:260px;margin:24px auto 32px;color:#f4dfd1;}
+#invitation .date-top{display:flex;justify-content:space-around;gap:24px;font-size:1.1rem;}
+#invitation .date-main{display:flex;justify-content:center;align-items:center;margin-top:22px;gap:24px;}
+#invitation .date-main strong{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:400;line-height:1.1;}
+#invitation .date-main>span{border-right:1px solid #be8e89;padding-right:24px;font-size:1.15rem;line-height:1.7;}
+#invitation .date-main b{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;}
+#invitation .countdown-section{margin:30px 0 38px;}
+#invitation .countdown-section h3{font-size:1.4rem;font-weight:500;margin-bottom:14px;}
+#wedding-countdown{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 14px;color:#f4dfd1;font-size:1.1rem;min-height:34px;font-variant-numeric:tabular-nums;}
+#wedding-countdown span{white-space:nowrap;}
+#invitation .wedding-calendar{background:#f0e8d9;color:#681b20;border-radius:20px;padding:24px 14px 26px;margin:0 auto;max-width:520px;}
+#invitation .wedding-calendar table{width:100%;table-layout:fixed;border-collapse:collapse;text-align:center;}
+#invitation .wedding-calendar caption{font-size:1.9rem;padding:0 0 18px;}
+#invitation .wedding-calendar caption span{font-family:'Great Vibes',cursive;margin-right:10px;}
+#invitation .wedding-calendar th{font-weight:400;font-size:1rem;border-top:1px solid #c4a6a0;border-bottom:2px solid #681b20;padding:10px 0;}
+#invitation .wedding-calendar td{height:48px;font-family:'Cormorant Garamond',serif;font-size:1.3rem;}
+#invitation .wedding-day{position:relative;display:inline-grid;place-items:center;width:36px;height:42px;}
+#invitation .wedding-day>span{position:absolute;font-family:Georgia,serif;font-size:42px;color:#681b20;line-height:1;}
+#invitation .wedding-day b{position:relative;color:#fff8ed;font-size:1.05rem;padding-bottom:2px;}
+#invitation .calendar-download{display:inline-block;margin-top:28px;padding:10px;color:#fff8ed;text-underline-offset:6px;font-size:1.25rem;}
+#invitation .calendar-download:focus-visible{outline:2px solid #fff8ed;outline-offset:4px;}
+@media(max-width:380px){
+    #invitation .reception-card{padding:36px 14px;}
+    #invitation .wedding-calendar{padding:20px 8px;}
+}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -985,7 +1013,28 @@ OPEN
 
 <section class="reception-card" lang="ar" dir="rtl" aria-labelledby="reception-title">
     <h2 id="reception-title">معلومات الاستقبال</h2>
-    <p><time datetime="2026-09-23T18:00:00">23 / 9 / 2026<br>الساعة السادسة مساءً</time></p>
+    <p>سيُقام الاستقبال في:</p>
+    <time class="wedding-date" datetime="2026-09-23T18:00:00+03:00">
+        <span class="date-top"><span>الأربعاء</span><span dir="ltr">18:00</span></span>
+        <span class="date-main"><strong>23</strong><span>سبتمبر<br><b>2026</b></span></span>
+    </time>
+    <div class="countdown-section">
+        <h3>العدّ التنازلي</h3>
+        <div id="wedding-countdown" role="timer" aria-live="off" aria-label="الوقت المتبقي للزفاف">23 سبتمبر 2026، الساعة السادسة مساءً</div>
+    </div>
+    <div class="wedding-calendar">
+        <table dir="rtl" aria-label="تقويم سبتمبر 2026">
+            <caption>سبتمبر <span>2026</span></caption>
+            <thead><tr><th scope="col" abbr="الاثنين">إث</th><th scope="col" abbr="الثلاثاء">ثل</th><th scope="col" abbr="الأربعاء">أر</th><th scope="col" abbr="الخميس">خم</th><th scope="col" abbr="الجمعة">جم</th><th scope="col" abbr="السبت">سب</th><th scope="col" abbr="الأحد">أح</th></tr></thead>
+            <tbody><tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+<tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+<tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+<tr><td>21</td><td>22</td><td><span class="wedding-day" aria-label="23 سبتمبر، يوم زفافنا"><span aria-hidden="true">♥</span><b>23</b></span></td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+<tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+        </table>
+    </div>
+    <a class="calendar-download" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-%2F%2FTeimAndJudy%2F%2FWedding%2F%2FEN%0D%0ACALSCALE%3AGREGORIAN%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Ateim-judy-20260923%40teimandjudy.github.io%0D%0ADTSTAMP%3A20260911T000000Z%0D%0ADTSTART%3A20260923T150000Z%0D%0ASUMMARY%3ATeim%20%26%20Judy%20Wedding%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR%0D%0A" download="Teim-Judy-Wedding.ics">أضف إلى التقويم</a>
 </section>
 
 </section>
@@ -1045,6 +1094,34 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.couple-arabic').forEach(function(el) {
         namesObserver.observe(el);
     });
+}
+
+
+/* Fixed wedding instant: 18:00 at UTC+03:00, independent of guest timezone. */
+const weddingInstant = Date.parse('2026-09-23T18:00:00+03:00');
+function countdownParts(now) {
+    const remaining = Math.max(0, Math.floor((weddingInstant - now) / 1000));
+    return [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24, Math.floor(remaining / 60) % 60, remaining % 60];
+}
+function updateWeddingCountdown() {
+    const target = document.getElementById('wedding-countdown');
+    const now = Date.now();
+    if (now >= weddingInstant) {
+        target.textContent = 'حان موعد فرحتنا ♡';
+        return false;
+    }
+    const labels = ['يوم', 'ساعة', 'دقيقة', 'ثانية'];
+    target.replaceChildren(...countdownParts(now).map(function(value, index) {
+        const span = document.createElement('span');
+        span.textContent = value + ' ' + labels[index];
+        return span;
+    }));
+    return true;
+}
+if (updateWeddingCountdown()) {
+    const countdownInterval = setInterval(function() {
+        if (!updateWeddingCountdown()) clearInterval(countdownInterval);
+    }, 1000);
 }
 
 </script>
