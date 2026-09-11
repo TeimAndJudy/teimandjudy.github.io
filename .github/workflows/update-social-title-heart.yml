@@ -1,0 +1,29 @@
+name: Update social preview title heart
+on:
+  push:
+    paths:
+      - '.github/workflows/update-social-title-heart.yml'
+permissions:
+  contents: write
+jobs:
+  update-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace preview title
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for fn in ['index.html','404.html']:
+              p=Path(fn)
+              s=p.read_text(encoding='utf-8')
+              s=s.replace('تيم و جودي','تيم ❤️ جودي')
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "TeimAndJudy"
+          git config user.email "joudy.mouhaffel@hotmail.com"
+          git add index.html 404.html
+          git diff --cached --quiet || git commit -m "Update social preview title to Teim heart Judy"
+          git push
