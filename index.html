@@ -723,6 +723,20 @@ body{
     #invitation .forever-title,#invitation .couple-photo-frame,#invitation .photo-heart{animation:none;}
 }
 
+
+/* Refined month labels, calligraphic countdown and larger event details. */
+#invitation .month-short{font-family:'Cormorant Garamond',serif;letter-spacing:.12em;font-size:1.45rem;font-weight:600;}
+#invitation .wedding-calendar caption{font-family:'Cormorant Garamond',serif;letter-spacing:.08em;}
+#invitation .wedding-date{max-width:320px;}
+#invitation .date-top{font-size:1.4rem;font-weight:600;align-items:center;}
+#invitation .date-top>span{white-space:nowrap;}
+#invitation #wedding-countdown{
+    font-family:'Aref Ruqaa','Noto Naskh Arabic',serif;
+    font-weight:700;
+    font-size:clamp(1.5rem,5vw,1.9rem);
+    line-height:2;
+    gap:10px 22px;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -1096,7 +1110,7 @@ OPEN
     <h2 id="reception-title">و ذلك في تاريخ</h2>
     <time class="wedding-date" datetime="2026-09-23T19:00:00+03:00">
         <span class="date-top"><span>الأربعاء</span><span dir="ltr">7:00 PM</span></span>
-        <span class="date-main"><strong>23</strong><span>سبتمبر<br><b>2026</b></span></span>
+        <span class="date-main"><strong>23</strong><span><span class="month-short" lang="en" dir="ltr">SEP</span><br><b>2026</b></span></span>
     </time>
     <div class="countdown-section">
         <h3>العدّ التنازلي</h3>
@@ -1104,7 +1118,7 @@ OPEN
     </div>
     <div class="wedding-calendar">
         <table dir="ltr" aria-label="تقويم سبتمبر 2026">
-            <caption>سبتمبر <span>2026</span></caption>
+            <caption lang="en" dir="ltr">SEP <span>2026</span></caption>
             <thead lang="en"><tr><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th><th scope="col" abbr="Sunday">Sun</th></tr></thead>
             <tbody><tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
 <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
