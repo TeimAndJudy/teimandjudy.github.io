@@ -1,0 +1,26 @@
+name: Patch shrink cover card
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-shrink-cover-card.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-shrink-cover-card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Shrink only cream cover card
+        run: python patch_shrink_cover_card.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Shrink cream cover card only"
+          git push origin HEAD:main
