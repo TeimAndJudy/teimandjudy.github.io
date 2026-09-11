@@ -678,12 +678,18 @@ body{
     font-size:1.3rem;
 }
 
+
+#music-toggle{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));right:18px;z-index:1000;border:1px solid #e2c1ae;border-radius:30px;padding:12px 18px;background:#681b20;color:#fff8ed;font-family:'Noto Naskh Arabic',serif;font-size:16px;cursor:pointer;box-shadow:0 4px 18px #0003;}
+#music-toggle[hidden]{display:none;}
+#music-toggle:focus-visible{outline:3px solid #dfb9a6;outline-offset:4px;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
+<audio id="wedding-music" src="./wedding-music.mp3" preload="none" loop></audio>
+<button id="music-toggle" type="button" hidden aria-label="تشغيل الموسيقى" aria-pressed="false">♫ تشغيل الموسيقى</button>
 
 
 <section id="cover">
@@ -1095,6 +1101,8 @@ if(guest){
 ========================= */
 
 function openInvitation(){
+    document.getElementById("music-toggle").hidden = false;
+    playWeddingMusic();
 
     document
     .getElementById("cover")
@@ -1152,6 +1160,32 @@ if (updateWeddingCountdown()) {
     }, 1000);
 }
 
+
+const weddingMusic = document.getElementById('wedding-music');
+const musicToggle = document.getElementById('music-toggle');
+weddingMusic.volume = 0.5;
+function syncMusicButton(){
+    const playing = !weddingMusic.paused;
+    musicToggle.textContent = playing ? 'Ⅱ إيقاف الموسيقى' : '♫ تشغيل الموسيقى';
+    musicToggle.setAttribute('aria-label', playing ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
+    musicToggle.setAttribute('aria-pressed', String(playing));
+}
+function playWeddingMusic(){
+    const attempt = weddingMusic.play();
+    if(attempt && typeof attempt.catch === 'function'){
+        attempt.catch(function(){syncMusicButton();});
+    }
+}
+musicToggle.addEventListener('click', function(){
+    if(weddingMusic.paused){playWeddingMusic();}else{weddingMusic.pause();}
+});
+weddingMusic.addEventListener('play', syncMusicButton);
+weddingMusic.addEventListener('pause', syncMusicButton);
+weddingMusic.addEventListener('error', function(){
+    musicToggle.textContent = '♫ إعادة تشغيل الموسيقى';
+    musicToggle.setAttribute('aria-label','إعادة تشغيل الموسيقى');
+    musicToggle.setAttribute('aria-pressed','false');
+});
 </script>
 
 
