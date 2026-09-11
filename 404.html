@@ -13,6 +13,6 @@ fetch('/index.html', {cache:'no-store'})
   .then(function(response){ return response.text(); })
   .then(function(html){ document.open(); document.write(html); document.close(); })
   .catch(function(){ document.body.innerHTML = '<div>تعذّر فتح الدعوة</div>'; });
-<\/script>
+</script>
 </body>
 </html>
