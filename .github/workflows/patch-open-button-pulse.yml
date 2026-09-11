@@ -1,0 +1,26 @@
+name: Patch open button pulse
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-open-button-pulse.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-open-button-pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Center arrow and pulse whole button
+        run: python patch_open_button_pulse.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Pulse invitation button and center arrow"
+          git push origin HEAD:main
