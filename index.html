@@ -1364,6 +1364,126 @@ body{
     .open-btn{animation:none!important;}
 }
 
+
+/* FLORAL DARK COMPACT CARDS START */
+/* Darker, slightly smaller invitation cards with burgundy + beige floral corners. */
+#invitation .love-card,
+#invitation .reception-card,
+#invitation .venue-card,
+#invitation .rsvp-card{
+    width:min(91%,620px) !important;
+    max-width:620px !important;
+    margin:0 auto 56px !important;
+    padding:42px 22px !important;
+    border-radius:28px !important;
+    background:linear-gradient(150deg,#4b0b12 0%,#5d0f18 46%,#71151f 100%) !important;
+    color:#fff8ed !important;
+    border:1px solid rgba(247,225,208,.26) !important;
+    box-shadow:0 22px 42px rgba(72,8,17,.22) !important;
+    position:relative !important;
+    overflow:visible !important;
+    isolation:isolate;
+}
+
+#invitation .love-card::before,
+#invitation .reception-card::before,
+#invitation .venue-card::before,
+#invitation .rsvp-card::before,
+#invitation .love-card::after,
+#invitation .reception-card::after,
+#invitation .venue-card::after,
+#invitation .rsvp-card::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:124px;
+    background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMTgwIj4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICA8cGF0aCBkPSJNMjggMTU0IEM1MiAxMTUgNzggNzUgMTI5IDI4IiBzdHJva2U9IiNhMjhiNjkiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik00NSAxNjMgQzcyIDEyOCAxMDUgOTQgMTcxIDU4IiBzdHJva2U9IiNiNDk0NjciIHN0cm9rZS13aWR0aD0iMS43Ii8+CiAgPHBhdGggZD0iTTE4IDEzMiBDNTcgMTIwIDgzIDEwMiAxMTEgNzYiIHN0cm9rZT0iIzhjN2Q1YyIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8cGF0aCBkPSJNMTA2IDg4IEMxMzMgNzUgMTU1IDU3IDE4NSAzMiIgc3Ryb2tlPSIjYjg5YjZhIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8L2c+CjxnIGZpbGw9IiM4ZDg5NjUiPgogIDxlbGxpcHNlIGN4PSI3NCIgY3k9IjEwOCIgcng9IjciIHJ5PSIxOSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQyIDc0IDEwOCkiLz4KICA8ZWxsaXBzZSBjeD0iMTA0IiBjeT0iODMiIHJ4PSI3IiByeT0iMTgiIHRyYW5zZm9ybT0icm90YXRlKDM0IDEwNCA4MykiLz4KICA8ZWxsaXBzZSBjeD0iMTQzIiBjeT0iNTciIHJ4PSI2IiByeT0iMTciIHRyYW5zZm9ybT0icm90YXRlKC0zOCAxNDMgNTcpIi8+CiAgPGVsbGlwc2UgY3g9IjUyIiBjeT0iMTMyIiByeD0iNiIgcnk9IjE2IiB0cmFuc2Zvcm09InJvdGF0ZSgyOCA1MiAxMzIpIi8+CjwvZz4KPGcgZmlsbD0iI2M5OWI1ZSI+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iNDIiIHI9IjMiLz48Y2lyY2xlIGN4PSIxNjgiIGN5PSIzNCIgcj0iMi44Ii8+PGNpcmNsZSBjeD0iMTc5IiBjeT0iNDQiIHI9IjIuMyIvPgogIDxjaXJjbGUgY3g9IjEyNiIgY3k9IjY4IiByPSIyLjciLz48Y2lyY2xlIGN4PSIxMzgiIGN5PSI2NyIgcj0iMi4yIi8+PGNpcmNsZSBjeD0iMTQ4IiBjeT0iNzMiIHI9IjIuNCIvPgo8L2c+CjwhLS0gbGFyZ2UgYnVyZ3VuZHkgYmxvb20gLS0+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUgNzIpIj4KICA8ZWxsaXBzZSBjeD0iNDQiIGN5PSI0MCIgcng9IjI4IiByeT0iMzQiIGZpbGw9IiM1YjBkMTciLz4KICA8ZWxsaXBzZSBjeD0iNDQiIGN5PSIxOCIgcng9IjE4IiByeT0iMjgiIGZpbGw9IiM3ZjE4MjUiLz4KICA8ZWxsaXBzZSBjeD0iMjAiIGN5PSIzNiIgcng9IjE4IiByeT0iMjgiIGZpbGw9IiM2YTExMWQiIHRyYW5zZm9ybT0icm90YXRlKC00OCAyMCAzNikiLz4KICA8ZWxsaXBzZSBjeD0iNjgiIGN5PSIzNiIgcng9IjE4IiByeT0iMjgiIGZpbGw9IiM4YjIxMzAiIHRyYW5zZm9ybT0icm90YXRlKDQ4IDY4IDM2KSIvPgogIDxlbGxpcHNlIGN4PSIyOCIgY3k9IjYwIiByeD0iMjEiIHJ5PSIyNiIgZmlsbD0iIzRiMGIxMyIvPgogIDxlbGxpcHNlIGN4PSI2MSIgY3k9IjYwIiByeD0iMjEiIHJ5PSIyNiIgZmlsbD0iIzY3MTAxYSIvPgogIDxjaXJjbGUgY3g9IjQ0IiBjeT0iNDIiIHI9IjExIiBmaWxsPSIjMmYwNzEwIi8+CiAgPGcgZmlsbD0iI2M2OTI0ZSI+PGNpcmNsZSBjeD0iNDAiIGN5PSIzOCIgcj0iMiIvPjxjaXJjbGUgY3g9IjQ4IiBjeT0iMzYiIHI9IjIiLz48Y2lyY2xlIGN4PSI0NCIgY3k9IjQ2IiByPSIyIi8+PC9nPgo8L2c+CjwhLS0gYmVpZ2UgYmxvb20gLS0+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwIDk1KSI+CiAgPGVsbGlwc2UgY3g9IjM0IiBjeT0iMjYiIHJ4PSIxNiIgcnk9IjIyIiBmaWxsPSIjZWFkY2MzIi8+CiAgPGVsbGlwc2UgY3g9IjE3IiBjeT0iMzkiIHJ4PSIxNSIgcnk9IjIxIiBmaWxsPSIjZGVjOWFhIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDIgMTcgMzkpIi8+CiAgPGVsbGlwc2UgY3g9IjUxIiBjeT0iMzkiIHJ4PSIxNSIgcnk9IjIxIiBmaWxsPSIjZjBlNWNmIiB0cmFuc2Zvcm09InJvdGF0ZSg0MiA1MSAzOSkiLz4KICA8ZWxsaXBzZSBjeD0iMjUiIGN5PSI1NyIgcng9IjE2IiByeT0iMjAiIGZpbGw9IiNkN2MwOWUiLz4KICA8ZWxsaXBzZSBjeD0iNDYiIGN5PSI1NyIgcng9IjE2IiByeT0iMjAiIGZpbGw9IiNlYWRjYzMiLz4KICA8Y2lyY2xlIGN4PSIzNCIgY3k9IjQzIiByPSI5IiBmaWxsPSIjYjM4ZDVkIi8+CjwvZz4KPCEtLSBzbWFsbGVyIGJ1cmd1bmR5IGJsb29tIC0tPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDUgODgpIHNjYWxlKC43MikiPgogIDxlbGxpcHNlIGN4PSIzNSIgY3k9IjM0IiByeD0iMjQiIHJ5PSIyOSIgZmlsbD0iIzZjMTExZCIvPgogIDxlbGxpcHNlIGN4PSIzNSIgY3k9IjE1IiByeD0iMTYiIHJ5PSIyMyIgZmlsbD0iIzhmMjQzMSIvPgogIDxlbGxpcHNlIGN4PSIxNyIgY3k9IjM0IiByeD0iMTUiIHJ5PSIyMyIgZmlsbD0iIzU3MTAxYSIvPgogIDxlbGxpcHNlIGN4PSI1MyIgY3k9IjM0IiByeD0iMTUiIHJ5PSIyMyIgZmlsbD0iIzdkMTcyNCIvPgogIDxlbGxpcHNlIGN4PSIzNSIgY3k9IjUzIiByeD0iMTgiIHJ5PSIyMiIgZmlsbD0iIzRmMGMxNSIvPgogIDxjaXJjbGUgY3g9IjM1IiBjeT0iMzQiIHI9IjkiIGZpbGw9IiMyYjA3MTAiLz4KPC9nPgo8L3N2Zz4=");
+    background-repeat:no-repeat;
+    background-size:contain;
+    pointer-events:none;
+    z-index:0;
+    opacity:.98;
+    filter:drop-shadow(0 7px 10px rgba(57,4,12,.12));
+}
+
+#invitation .love-card::before,
+#invitation .reception-card::before,
+#invitation .venue-card::before,
+#invitation .rsvp-card::before{
+    left:-48px;
+    top:-38px;
+    transform:rotate(-7deg);
+}
+
+#invitation .love-card::after,
+#invitation .reception-card::after,
+#invitation .venue-card::after,
+#invitation .rsvp-card::after{
+    right:-47px;
+    bottom:-37px;
+    transform:rotate(173deg);
+}
+
+#invitation .love-card > *,
+#invitation .reception-card > *,
+#invitation .venue-card > *,
+#invitation .rsvp-card > *{
+    position:relative;
+    z-index:1;
+}
+
+/* Keep the soft inner RSVP panel but deepen it so it sits elegantly inside the dark outer card. */
+#invitation .rsvp-inner,
+#invitation .rsvp-panel,
+#invitation .rsvp-form-wrap{
+    background:rgba(226,188,191,.22) !important;
+    border:1px solid rgba(255,245,235,.34) !important;
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+#invitation .rsvp-card h2,
+#invitation .rsvp-card .rsvp-intro,
+#invitation .rsvp-card .rsvp-message{
+    color:#fff4e9 !important;
+}
+
+#invitation .venue-name{color:#ead0c5 !important;}
+#invitation .wedding-calendar{max-width:490px !important;}
+#invitation .venue-map-frame{max-width:500px !important;}
+
+@media(max-width:600px){
+    #invitation .love-card,
+    #invitation .reception-card,
+    #invitation .venue-card,
+    #invitation .rsvp-card{
+        width:90vw !important;
+        padding:36px 16px !important;
+        border-radius:24px !important;
+        margin-bottom:52px !important;
+    }
+    #invitation .love-card::before,
+    #invitation .reception-card::before,
+    #invitation .venue-card::before,
+    #invitation .rsvp-card::before,
+    #invitation .love-card::after,
+    #invitation .reception-card::after,
+    #invitation .venue-card::after,
+    #invitation .rsvp-card::after{
+        width:112px;
+        height:93px;
+    }
+    #invitation .love-card::before,
+    #invitation .reception-card::before,
+    #invitation .venue-card::before,
+    #invitation .rsvp-card::before{left:-30px;top:-27px;}
+    #invitation .love-card::after,
+    #invitation .reception-card::after,
+    #invitation .venue-card::after,
+    #invitation .rsvp-card::after{right:-29px;bottom:-27px;}
+}
+/* FLORAL DARK COMPACT CARDS END */
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
