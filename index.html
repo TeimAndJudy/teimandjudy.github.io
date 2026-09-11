@@ -1563,6 +1563,26 @@ body{
 }
 /* SLIGHTLY SMALLER INVITATION CARDS END */
 
+
+/* SMALLER COVER CARD START */
+/* Only reduce the cream cover card itself. Keep all text/button sizes unchanged. */
+#cover .card{
+    width:min(620px,88vw) !important;
+    min-height:790px !important;
+    padding-top:44px !important;
+    padding-bottom:40px !important;
+}
+
+@media(max-width:600px){
+    #cover .card{
+        width:88vw !important;
+        min-height:700px !important;
+        padding-left:18px !important;
+        padding-right:18px !important;
+    }
+}
+/* SMALLER COVER CARD END */
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
