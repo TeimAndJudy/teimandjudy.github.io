@@ -1583,6 +1583,13 @@ body{
 }
 /* SMALLER COVER CARD END */
 
+
+/* RSVP FLOWER ABOVE GLASS FIX */
+/* Keep the bottom-right floral decoration above the translucent RSVP panel. */
+#invitation .rsvp-card::before{z-index:1 !important;}
+#invitation .rsvp-card > *{position:relative;z-index:2 !important;}
+#invitation .rsvp-card::after{z-index:5 !important;pointer-events:none !important;}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
