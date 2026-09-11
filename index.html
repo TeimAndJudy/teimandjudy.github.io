@@ -558,7 +558,71 @@ body{
 
 }
 
+
+/* Arabic invitation cards — cover styles remain unchanged. */
+#invitation .love-card,
+#invitation .reception-card{
+    width:100%;
+    max-width:680px;
+    margin:0 auto 48px;
+    padding:48px 24px;
+    border-radius:24px;
+    background:linear-gradient(145deg,#64191d,#741f24);
+    color:#fff8ed;
+    box-shadow:0 18px 36px rgba(83,23,27,.14);
+    font-family:'Noto Naskh Arabic',serif;
+}
+#invitation .love-card h2,
+#invitation .reception-card h2{
+    font-size:clamp(1.6rem,6vw,2.5rem);
+    font-weight:700;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+#invitation .love-card p{
+    max-width:470px;
+    margin:0 auto;
+    color:#f2d9cd;
+    font-size:clamp(1.1rem,4.5vw,1.55rem);
+    line-height:2;
+}
+#invitation .couple-arabic{
+    display:grid;
+    justify-items:center;
+    gap:8px;
+    margin-top:38px;
+}
+#invitation .arabic-name{
+    font-family:'Aref Ruqaa','Noto Naskh Arabic',serif;
+    font-size:clamp(2.4rem,10vw,4.8rem);
+    font-weight:700;
+    line-height:1.8;
+    max-width:100%;
+    padding:4px 0;
+    text-shadow:0 3px 12px rgba(30,0,0,.12);
+}
+#invitation .name-amp{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(2.2rem,8vw,3.8rem);
+    line-height:1.3;
+    color:#dfb9a6;
+}
+#invitation .names-revealed .arabic-name{
+    animation:arabicNameReveal 1.2s ease both;
+}
+#invitation .names-revealed .arabic-name:last-child{
+    animation-delay:.22s;
+}
+@keyframes arabicNameReveal{
+    from{opacity:0;transform:translateY(16px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@media(prefers-reduced-motion:reduce){
+    #invitation .names-revealed .arabic-name{animation:none;}
+}
+
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -907,23 +971,22 @@ OPEN
     decoding="async"
 >
 
-<h1>
-Teim & Judy
-</h1>
+<section class="love-card" lang="ar" dir="rtl" aria-labelledby="love-title">
+    <h2 id="love-title"><span aria-hidden="true">♡</span> بكل الحب والسرور</h2>
+    <p>نتشرّف بدعوتكم لمشاركتنا عشاء زفافنا،<br>
+    ويسعدنا أن تكونوا جزءًا من فرحتنا<br>
+    في هذه الليلة المميّزة.</p>
+    <div class="couple-arabic">
+        <div class="arabic-name">تيم ططري</div>
+        <span class="name-amp" aria-label="و">&amp;</span>
+        <div class="arabic-name">جودي محفل</div>
+    </div>
+</section>
 
-<p>
-يسعدنا أن تشاركونا فرحتنا
-<br>
-في يوم زفافنا
-</p>
-
-<br><br>
-
-<p>
-23 / 9 / 2026
-<br>
-6:00 PM
-</p>
+<section class="reception-card" lang="ar" dir="rtl" aria-labelledby="reception-title">
+    <h2 id="reception-title">معلومات الاستقبال</h2>
+    <p><time datetime="2026-09-23T18:00:00">23 / 9 / 2026<br>الساعة السادسة مساءً</time></p>
+</section>
 
 </section>
 
@@ -966,6 +1029,22 @@ function openInvitation(){
 
     window.scrollTo(0,0);
 
+}
+
+
+/* Reveal whole Arabic names together to preserve connected lettering. */
+if ('IntersectionObserver' in window) {
+    const namesObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('names-revealed');
+                namesObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold:0.2 });
+    document.querySelectorAll('.couple-arabic').forEach(function(el) {
+        namesObserver.observe(el);
+    });
 }
 
 </script>
