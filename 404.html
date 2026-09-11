@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teim & Judy Wedding</title>
+<style>html,body{margin:0;min-height:100%;background:#681017}body{display:grid;place-items:center;color:#fff8ed;font-family:serif}</style>
+</head>
+<body>
+<div>...</div>
+<script>
+fetch('/index.html', {cache:'no-store'})
+  .then(function(response){ return response.text(); })
+  .then(function(html){ document.open(); document.write(html); document.close(); })
+  .catch(function(){ document.body.innerHTML = '<div>تعذّر فتح الدعوة</div>'; });
+<\/script>
+</body>
+</html>

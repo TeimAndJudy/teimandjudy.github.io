@@ -1518,9 +1518,16 @@ Judy
 ========================= */
 
 const rawGuestQuery = window.location.search.slice(1);
+const rawGuestPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
 let guestParam = "";
 
-if (rawGuestQuery && !rawGuestQuery.includes("=")) {
+if (rawGuestPath && rawGuestPath !== "index.html" && rawGuestPath !== "404.html") {
+    try {
+        guestParam = decodeURIComponent(rawGuestPath.replace(/\+/g, " "));
+    } catch (error) {
+        guestParam = rawGuestPath.replace(/\+/g, " ");
+    }
+} else if (rawGuestQuery && !rawGuestQuery.includes("=")) {
     try {
         guestParam = decodeURIComponent(rawGuestQuery.replace(/\+/g, " "));
     } catch (error) {
