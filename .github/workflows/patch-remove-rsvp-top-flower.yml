@@ -1,0 +1,26 @@
+name: Patch remove RSVP top flower
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-remove-rsvp-top-flower.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-remove-rsvp-top-flower:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Remove RSVP top floral sticker
+        run: python patch_remove_rsvp_top_flower.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Remove RSVP top floral sticker"
+          git push origin HEAD:main
