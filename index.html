@@ -692,6 +692,37 @@ body{
 #invitation .wedding-day{width:100%;max-width:48px;height:52px;}
 #invitation .wedding-day>span{font-size:54px;}
 #invitation .wedding-calendar th{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+
+/* Romantic photo introduction; original image remains uncropped. */
+#invitation .forever-intro{max-width:680px;margin:0 auto 48px;}
+#invitation .forever-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.5rem,5.8vw,2.6rem);
+    font-weight:500;letter-spacing:.12em;line-height:1.5;
+    color:#681b20;margin:0 auto 16px;text-wrap:balance;
+    animation:photoReveal 1.1s ease both;
+}
+#invitation .forever-rule{display:flex;align-items:center;justify-content:center;gap:14px;color:#a27172;font-size:24px;margin-bottom:28px;}
+#invitation .forever-rule::before,#invitation .forever-rule::after{content:"";width:64px;height:1px;background:#c5a19b;}
+#invitation .couple-photo-frame{
+    position:relative;margin:0 8px;padding:9px;
+    border:1px solid #b58380;border-radius:22px;
+    background:#f8eee4;
+    box-shadow:0 12px 28px rgba(104,27,32,.13);
+    animation:photoReveal 1.3s .15s ease both;
+}
+#invitation .couple-photo-frame img{display:block;width:100%;height:auto;border-radius:15px;}
+#invitation .photo-heart{position:absolute;pointer-events:none;color:#741f24;line-height:1;background:#fffaf3;border-radius:50%;padding:4px;animation:photoHeartFloat 5s ease-in-out infinite;}
+#invitation .photo-heart-one{top:-17px;left:18px;font-size:35px;}
+#invitation .photo-heart-two{top:27px;left:-14px;font-size:17px;color:#ac7879;animation-delay:-1.5s;}
+#invitation .photo-heart-three{bottom:-18px;right:18px;font-size:35px;animation-delay:-2s;}
+#invitation .photo-heart-four{bottom:28px;right:-14px;font-size:17px;color:#ac7879;animation-delay:-3s;}
+@keyframes photoReveal{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes photoHeartFloat{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-5px) rotate(5deg);}}
+@media(prefers-reduced-motion:reduce){
+    #invitation .forever-title,#invitation .couple-photo-frame,#invitation .photo-heart{animation:none;}
+}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -1037,12 +1068,18 @@ OPEN
 
 <section id="invitation">
 
-<img
-    src="./E08D814B-1973-48D4-8892-D3E1C64E370F.jpeg"
-    alt="Teim and Judy"
-    style="display:block;width:100%;max-width:680px;height:auto;margin:0 auto 36px;border-radius:13px;"
-    decoding="async"
->
+<div class="forever-intro">
+    <h2 class="forever-title" lang="en" dir="ltr">THE BEGINNING OF FOREVER</h2>
+    <div class="forever-rule" aria-hidden="true">♡</div>
+    <figure class="couple-photo-frame">
+        <img src="./E08D814B-1973-48D4-8892-D3E1C64E370F.jpeg"
+             alt="Teim and Judy" decoding="async">
+        <span class="photo-heart photo-heart-one" aria-hidden="true">♡</span>
+        <span class="photo-heart photo-heart-two" aria-hidden="true">♥</span>
+        <span class="photo-heart photo-heart-three" aria-hidden="true">♡</span>
+        <span class="photo-heart photo-heart-four" aria-hidden="true">♥</span>
+    </figure>
+</div>
 
 <section class="love-card" lang="ar" dir="rtl" aria-labelledby="love-title">
     <h2 id="love-title"><span aria-hidden="true">♡</span> بكل الحب والسرور <span aria-hidden="true">♡</span></h2>
