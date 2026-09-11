@@ -1,0 +1,107 @@
+name: Patch invitation cover
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-cover.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-cover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update cover text and arrow button
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global text
+              if old not in text:
+                  raise SystemExit(f'Expected {label} block was not found')
+              text = text.replace(old, new, 1)
+
+          replace_once('يسرّنا أن ندعوكم', 'دعوة خاصة إلى', 'Arabic cover title')
+
+          replace_once('''<!-- BOTTOM TEXT -->
+
+<div class="arabic-text">
+لحضور عشاء زفافنا
+</div>
+
+
+
+<!-- OPEN BUTTON -->''', '''<!-- OPEN BUTTON -->''', 'bottom invitation text')
+
+          replace_once('''<button class="open-btn" onclick="openInvitation()">
+
+OPEN
+
+<span class="arrow">
+⟶
+</span>
+
+</button>''', '''<button class="open-btn" onclick="openInvitation()" aria-label="فتح الدعوة">
+<span class="arrow" aria-hidden="true">⟶</span>
+</button>''', 'open button')
+
+          cover_css = r'''
+
+/* Personalized cover refinement: private invitation + clear arrow-only button. */
+.guest-box{
+    margin-bottom:32px;
+}
+.open-btn{
+    width:125px;
+    min-height:70px;
+    padding:0;
+    border-radius:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing:0;
+}
+.open-btn .arrow{
+    display:block;
+    margin:0;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:46px;
+    line-height:1;
+    transform:translateY(-2px);
+}
+@media(max-width:600px){
+    .guest-box{margin-bottom:28px;}
+    .open-btn{width:112px;min-height:64px;}
+    .open-btn .arrow{font-size:42px;}
+}
+'''
+
+          marker = '</style>\n<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">'
+          if 'Personalized cover refinement:' not in text:
+              replace_once(marker, cover_css + marker, 'main style closing marker')
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit invitation update
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update personalized invitation cover"
+          git push origin HEAD:main
