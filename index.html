@@ -660,15 +660,15 @@ body{
     width:100%;
     max-width:620px;
     margin:30px auto 38px;
-    padding:28px 16px;
-    background:linear-gradient(135deg,#fbf3eb,#f3e5dc);
-    color:#681b20;
-    border:1px solid rgba(255,248,239,.5);
-    border-radius:28px;
-    box-shadow:0 4px 14px rgba(40,0,0,.05);
+    padding:28px 0;
+    background:none;
+    color:#fff8ed;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
 }
 #invitation #wedding-countdown{
-    color:#681b20;
+    color:#fff8ed;
     font-size:clamp(1.4rem,4.8vw,1.75rem);
     font-weight:700;
     line-height:1.8;
@@ -687,6 +687,11 @@ body{
 #music-toggle{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));right:18px;z-index:1000;border:1px solid #e2c1ae;border-radius:30px;padding:12px 18px;background:#681b20;color:#fff8ed;font-family:'Noto Naskh Arabic',serif;font-size:16px;cursor:pointer;box-shadow:0 4px 18px #0003;}
 #music-toggle[hidden]{display:none;}
 #music-toggle:focus-visible{outline:3px solid #dfb9a6;outline-offset:4px;}
+
+/* Larger wedding-day heart and English weekday labels. */
+#invitation .wedding-day{width:100%;max-width:48px;height:52px;}
+#invitation .wedding-day>span{font-size:54px;}
+#invitation .wedding-calendar th{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -1062,9 +1067,9 @@ OPEN
         <div id="wedding-countdown" role="timer" aria-live="off" aria-label="الوقت المتبقي للزفاف">23 سبتمبر 2026، الساعة السابعة مساءً</div>
     </div>
     <div class="wedding-calendar">
-        <table dir="rtl" aria-label="تقويم سبتمبر 2026">
+        <table dir="ltr" aria-label="تقويم سبتمبر 2026">
             <caption>سبتمبر <span>2026</span></caption>
-            <thead><tr><th scope="col" abbr="الاثنين">إث</th><th scope="col" abbr="الثلاثاء">ثل</th><th scope="col" abbr="الأربعاء">أر</th><th scope="col" abbr="الخميس">خم</th><th scope="col" abbr="الجمعة">جم</th><th scope="col" abbr="السبت">سب</th><th scope="col" abbr="الأحد">أح</th></tr></thead>
+            <thead lang="en"><tr><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th><th scope="col" abbr="Sunday">Sun</th></tr></thead>
             <tbody><tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
 <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
 <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
