@@ -649,6 +649,35 @@ body{
     #invitation .wedding-calendar{padding:20px 8px;}
 }
 
+
+/* Updated date heading, calendar legibility and countdown panel. */
+#invitation .reception-card #reception-title{
+    font-size:clamp(2rem,7vw,3rem);
+    line-height:1.7;
+    margin-bottom:28px;
+}
+#invitation .countdown-section{
+    max-width:520px;
+    margin:30px auto 38px;
+    padding:24px 16px;
+    background:#f0e2d5;
+    color:#681b20;
+    border:1px solid #dfbdab;
+    border-radius:20px;
+    box-shadow:0 8px 22px rgba(40,0,0,.12);
+}
+#invitation #wedding-countdown{
+    color:#681b20;
+}
+#invitation .wedding-calendar td{
+    font-size:1.6rem;
+    font-weight:500;
+    height:52px;
+}
+#invitation .wedding-day b{
+    font-size:1.3rem;
+}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -1012,15 +1041,14 @@ OPEN
 </section>
 
 <section class="reception-card" lang="ar" dir="rtl" aria-labelledby="reception-title">
-    <h2 id="reception-title">معلومات الاستقبال</h2>
-    <p>سيُقام الاستقبال في:</p>
-    <time class="wedding-date" datetime="2026-09-23T18:00:00+03:00">
-        <span class="date-top"><span>الأربعاء</span><span dir="ltr">18:00</span></span>
+    <h2 id="reception-title">و ذلك في تاريخ</h2>
+    <time class="wedding-date" datetime="2026-09-23T19:00:00+03:00">
+        <span class="date-top"><span>الأربعاء</span><span dir="ltr">7:00 PM</span></span>
         <span class="date-main"><strong>23</strong><span>سبتمبر<br><b>2026</b></span></span>
     </time>
     <div class="countdown-section">
         <h3>العدّ التنازلي</h3>
-        <div id="wedding-countdown" role="timer" aria-live="off" aria-label="الوقت المتبقي للزفاف">23 سبتمبر 2026، الساعة السادسة مساءً</div>
+        <div id="wedding-countdown" role="timer" aria-live="off" aria-label="الوقت المتبقي للزفاف">23 سبتمبر 2026، الساعة السابعة مساءً</div>
     </div>
     <div class="wedding-calendar">
         <table dir="rtl" aria-label="تقويم سبتمبر 2026">
@@ -1034,7 +1062,7 @@ OPEN
 </tbody>
         </table>
     </div>
-    <a class="calendar-download" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-%2F%2FTeimAndJudy%2F%2FWedding%2F%2FEN%0D%0ACALSCALE%3AGREGORIAN%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Ateim-judy-20260923%40teimandjudy.github.io%0D%0ADTSTAMP%3A20260911T000000Z%0D%0ADTSTART%3A20260923T150000Z%0D%0ASUMMARY%3ATeim%20%26%20Judy%20Wedding%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR%0D%0A" download="Teim-Judy-Wedding.ics">أضف إلى التقويم</a>
+    <a class="calendar-download" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-%2F%2FTeimAndJudy%2F%2FWedding%2F%2FEN%0D%0ACALSCALE%3AGREGORIAN%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Ateim-judy-20260923%40teimandjudy.github.io%0D%0ADTSTAMP%3A20260911T000000Z%0D%0ADTSTART%3A20260923T160000Z%0D%0ASUMMARY%3ATeim%20%26%20Judy%20Wedding%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR%0D%0A" download="Teim-Judy-Wedding.ics">أضف إلى التقويم</a>
 </section>
 
 </section>
@@ -1097,8 +1125,8 @@ if ('IntersectionObserver' in window) {
 }
 
 
-/* Fixed wedding instant: 18:00 at UTC+03:00, independent of guest timezone. */
-const weddingInstant = Date.parse('2026-09-23T18:00:00+03:00');
+/* Fixed wedding instant: 19:00 at UTC+03:00, independent of guest timezone. */
+const weddingInstant = Date.parse('2026-09-23T19:00:00+03:00');
 function countdownParts(now) {
     const remaining = Math.max(0, Math.floor((weddingInstant - now) / 1000));
     return [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24, Math.floor(remaining / 60) % 60, remaining % 60];
