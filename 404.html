@@ -20,10 +20,17 @@
 <body>
 <div>...</div>
 <script>
-fetch('/index.html', {cache:'no-store'})
-  .then(function(response){ return response.text(); })
-  .then(function(html){ document.open(); document.write(html); document.close(); })
-  .catch(function(){ document.body.innerHTML = '<div>تعذّر فتح الدعوة</div>'; });
+(function(){
+  var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (path && path !== '404.html' && path !== 'index.html') {
+    var guest;
+    try { guest = decodeURIComponent(path.replace(/\+/g, ' ')); }
+    catch (e) { guest = path.replace(/\+/g, ' '); }
+    window.location.replace('/?guest=' + encodeURIComponent(guest));
+    return;
+  }
+  window.location.replace('/');
+})();
 </script>
 </body>
 </html>
