@@ -1,0 +1,26 @@
+name: Patch floral cards
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-floral-cards.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-floral-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply floral card styling
+        run: python patch_floral_cards.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Darken and decorate invitation cards"
+          git push origin HEAD:main
