@@ -1494,6 +1494,48 @@ body{
     box-shadow:none !important;
 }
 
+
+/* RSVP INNER GLASS PANEL START */
+#invitation .rsvp-card{
+    background:linear-gradient(150deg,#4a0911 0%,#5b0d17 48%,#6b111b 100%) !important;
+    padding:18px !important;
+    overflow:visible !important;
+}
+
+#invitation .rsvp-inner-panel{
+    width:100%;
+    padding:30px 18px 28px;
+    border-radius:22px;
+    background:rgba(218,176,184,.30);
+    border:1.5px solid rgba(255,244,236,.42);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 24px rgba(38,0,7,.10);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    position:relative;
+    z-index:2;
+}
+
+#invitation .rsvp-inner-panel h2,
+#invitation .rsvp-inner-panel .rsvp-intro,
+#invitation .rsvp-inner-panel .rsvp-message{
+    color:#fff7ef !important;
+}
+
+#invitation .rsvp-inner-panel .rsvp-option{
+    background:rgba(255,239,238,.14) !important;
+    border-color:rgba(255,248,241,.78) !important;
+}
+
+#invitation .rsvp-inner-panel .rsvp-option-text{
+    color:#fff5ee !important;
+}
+
+@media(max-width:600px){
+    #invitation .rsvp-card{padding:14px !important;}
+    #invitation .rsvp-inner-panel{padding:28px 14px 25px;border-radius:20px;}
+}
+/* RSVP INNER GLASS PANEL END */
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -1898,6 +1940,7 @@ Judy
 </section>
 
 <section class="rsvp-card" lang="ar" dir="rtl" aria-labelledby="rsvp-title">
+    <div class="rsvp-inner-panel">
     <h2 id="rsvp-title">تأكيد الحضور</h2>
     <p class="rsvp-intro">يسرّنا حضوركم، ونرجو تأكيد الحضور أو الاعتذار قبل 20/9.</p>
     <form id="rsvp-form">
@@ -1919,6 +1962,8 @@ Judy
         <button class="rsvp-submit" type="submit">تأكيد</button>
         <div class="rsvp-message" id="rsvp-message" role="status" aria-live="polite"></div>
     </form>
+
+    </div>
 </section>
 
 <p class="kids-note" lang="ar" dir="rtl">نتمنى لأطفالكم نوماً هنيئاً</p>
