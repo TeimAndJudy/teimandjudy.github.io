@@ -763,6 +763,33 @@ body{
     .open-btn{width:112px;min-height:64px;}
     .open-btn .arrow{font-size:42px;}
 }
+
+
+/* Personalized cover refinement: private invitation + clear arrow-only button. */
+.guest-box{margin-bottom:32px;}
+.open-btn{
+    width:125px;
+    min-height:70px;
+    padding:0;
+    border-radius:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing:0;
+}
+.open-btn .arrow{
+    display:block;
+    margin:0;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:46px;
+    line-height:1;
+    transform:translateY(-2px);
+}
+@media(max-width:600px){
+    .guest-box{margin-bottom:28px;}
+    .open-btn{width:112px;min-height:64px;}
+    .open-btn .arrow{font-size:42px;}
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 </head>
