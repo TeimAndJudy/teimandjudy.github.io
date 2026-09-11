@@ -1517,10 +1517,20 @@ Judy
    GUEST NAME FROM LINK
 ========================= */
 
-const params =
-new URLSearchParams(window.location.search);
+const rawGuestQuery = window.location.search.slice(1);
+let guestParam = "";
 
-const guestParam = params.get("guest");
+if (rawGuestQuery && !rawGuestQuery.includes("=")) {
+    try {
+        guestParam = decodeURIComponent(rawGuestQuery.replace(/\+/g, " "));
+    } catch (error) {
+        guestParam = rawGuestQuery.replace(/\+/g, " ");
+    }
+} else {
+    const params = new URLSearchParams(window.location.search);
+    guestParam = params.get("guest") || "";
+}
+
 const guest = (guestParam || "ضيفنا العزيز").trim() || "ضيفنا العزيز";
 
 document
