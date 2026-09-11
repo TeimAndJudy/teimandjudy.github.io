@@ -1,0 +1,26 @@
+name: Patch open arrow pulse
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-open-arrow-pulse.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-open-arrow-pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Center and pulse open arrow
+        run: python patch_open_arrow_pulse.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Center and animate invitation arrow"
+          git push origin HEAD:main
