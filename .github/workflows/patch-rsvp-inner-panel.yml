@@ -1,0 +1,26 @@
+name: Patch RSVP inner panel
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-rsvp-inner-panel.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-rsvp-inner-panel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Restore burgundy RSVP with glass inner panel
+        run: python patch_rsvp_inner_panel.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Restore burgundy RSVP inner glass panel"
+          git push origin HEAD:main
