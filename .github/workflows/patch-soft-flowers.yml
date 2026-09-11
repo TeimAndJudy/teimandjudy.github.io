@@ -1,0 +1,26 @@
+name: Patch soft flowers
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-soft-flowers.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-soft-flowers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply soft flower update
+        run: python patch_soft_flowers.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add soft flowers around photo frame"
+          git push origin HEAD:main
