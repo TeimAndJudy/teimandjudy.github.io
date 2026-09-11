@@ -1,0 +1,30 @@
+name: Patch invitation cover
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-cover.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-cover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply cover update
+        run: python patch_cover.py
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update personalized invitation cover"
+          git push origin HEAD:main
