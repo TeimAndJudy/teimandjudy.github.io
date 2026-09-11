@@ -1,0 +1,26 @@
+name: Patch guest path URL
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-guest-path.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-guest-path:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply guest path update
+        run: python patch_guest_path.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html 404.html
+          git commit -m "Allow guest name directly in URL path"
+          git push origin HEAD:main
